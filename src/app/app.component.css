@@ -1,0 +1,20 @@
+.viewport { 
+    /* display: contents; */
+    height: 200px;
+ }
+
+ /* cdk-virtual-scroll-viewport { 
+    contain: none;
+} */
+
+cdk-virtual-scroll-viewport {
+    display: block !important;
+} 
+
+.cdk-virtual-scrollable {
+    overflow: auto;
+    will-change: scroll-position;
+    contain: strict;
+    -webkit-overflow-scrolling: touch !important;
+}
+ 

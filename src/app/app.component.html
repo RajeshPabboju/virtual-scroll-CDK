@@ -1,0 +1,56 @@
+<h1>Virtual scrolling table</h1>
+<!-- {{tableData | json}} -->
+
+<cdk-virtual-scroll-viewport class="example-viewport" class="viewport" [itemSize]="40">
+  <!-- <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>ID</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *cdkVirtualFor="let row of tableData">
+        <td>{{row.id}}</td>
+        <td>{{row.id}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User Name</th>
+         <th>Total Logged Time</th>
+          <th>IdleTime</th>
+           <th>Training Time</th>
+            <th>Coordination</th>
+             <th>ReviewTime</th>
+             <ng-container *ngFor="let i of Arr(4).fill(1)">
+              <th>Date</th>
+              <th>hour</th>
+             </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *cdkVirtualFor="let audit of tableData;templateCacheSize: 0">
+        <td>{{audit.id}}</td>
+        <td>{{audit.username}}</td>
+        <td>{{audit.totalLoggedTime}}</td>
+        <td>{{audit.idleTime}}</td>
+        <td>{{audit.trainingTime}}</td>
+        <td>{{audit.coordination}}</td>
+        <td>{{audit.reviewTime}}</td>
+        <ng-container *ngFor="let date of audit.dates">
+          <td >
+            {{date.date}}
+          </td>
+          <td>
+             {{date.hour}}
+          </td>
+        </ng-container>
+        
+    </tbody>
+   </table>
+</cdk-virtual-scroll-viewport>
